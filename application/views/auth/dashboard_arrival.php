@@ -21,11 +21,7 @@
                  <!-- Nav Item - User Information -->
                  <li class="nav-item dropdown no-arrow">
                      <a class="nav-link " href="<?php echo base_url('auth') ?>" id="userDropdown" aria-haspopup="true" aria-expanded="false">
-                         <?php if ($this->session->userdata('email')) { ?>
-                             <span class=" mr-2 d-none d-lg-inline " style=" color: white;">Home</span>
-                         <?php } else { ?>
-                             <span class=" mr-2 d-none d-lg-inline " style=" color: white;">Login</span>
-                         <?php } ?>
+                         <span class=" mr-2 d-none d-lg-inline " style=" color: white;">Login</span>
                      </a>
                  </li>
 
@@ -63,18 +59,19 @@
                  <div class="row">
 
                      <div class="col-xl-70 col-lg-50">
+
                          <div class="card">
                              <div class="card-header">
-                                 DEPARTURE
+                                 ARRIVAL
                              </div>
                              <div class="card-body">
-                                 <table class="table table-hover" id="tak">
+                                 <table class="table table-hover" id="projust">
                                      <thead>
                                          <tr>
                                              <th scope="col">No</th>
                                              <th scope="col">Nama</th>
                                              <th scope="col">Tanggal</th>
-                                             <th scope="col">ETD</th>
+                                             <th scope="col">ETA</th>
                                              <th scope="col">Jabatan</th>
                                              <th scope="col">Kode Penerbangan</th>
                                              <th scope="col">Rute</th>
@@ -82,14 +79,29 @@
                                              <th scope="col">Contact Person</th>
                                              <th scope="col">Petugas</th>
                                              <th scope="col">Keterangan</th>
-
                                          </tr>
                                      </thead>
-                                     <tbody id="departure"></tbody>
+                                     <tbody>
+                                         <?php $i = 1; ?>
+                                         <?php foreach ($projustisia as $t) : ?>
+                                             <tr>
+                                                 <th scope="row"><?php echo $i; ?></th>
+                                                 <td><?php echo $t['nama']; ?></td>
+                                                 <td><?php echo $t['tgl_l']; ?></td>
+                                                 <td><?php echo $t['pasal']; ?></td>
+                                                 <td><?php echo $t['jabatan']; ?></td>
+                                                 <td><?php echo $t['alamat']; ?></td>
+                                                 <td><?php echo $t['paspor']; ?></td>
+                                                 <td><?php echo $t['niora']; ?></td>
+                                                 <td><?php echo $t['kebangsaan']; ?></td>
+                                                 <td><?php echo $t['jenis_doc']; ?></td>
+                                                 <td><?php echo $t['pelanggaran']; ?></td>
+                                                 <?php $i++; ?>
+                                             <?php endforeach; ?>
+                                     </tbody>
                                  </table>
                              </div>
                          </div>
-
                      </div>
                  </div>
              </div>
@@ -97,7 +109,7 @@
      </div>
  </div>
 
- <script>
+ <!-- <script>
      $('document').ready(
          function() {
              setInterval(() => {
@@ -115,7 +127,7 @@
              }
          });
      }
- </script>
+ </script> -->
 
  <script>
      var ctx = document.getElementById('myChart').getContext('2d');

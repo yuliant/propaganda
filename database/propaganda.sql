@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 06, 2021 at 02:28 AM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Host: localhost:3306
+-- Generation Time: Feb 21, 2023 at 06:38 AM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `disposisi`
+-- Database: `propaganda`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +39,7 @@ CREATE TABLE `anggaran` (
 
 INSERT INTO `anggaran` (`id_ang`, `nama`, `jumlah`) VALUES
 (1, 'Anggaran Utama', 25000000),
-(2, 'Subag1', 2000000);
+(2, 'Subag1', 1200000);
 
 -- --------------------------------------------------------
 
@@ -188,20 +187,28 @@ CREATE TABLE `tak` (
   `alamat` varchar(128) NOT NULL,
   `tgl_l` date NOT NULL,
   `paspor` varchar(128) NOT NULL,
-  `masa` date NOT NULL,
+  `masa` date DEFAULT NULL,
   `niora` varchar(128) NOT NULL,
   `kebangsaan` varchar(128) NOT NULL,
-  `sponsor` varchar(128) NOT NULL,
+  `sponsor` varchar(128) DEFAULT NULL,
   `jabatan` varchar(50) NOT NULL,
   `jenis_doc` varchar(128) NOT NULL,
-  `pasal` varchar(128) NOT NULL,
+  `pasal` time DEFAULT NULL,
   `pelanggaran` varchar(50) NOT NULL,
-  `no_putusan` varchar(50) NOT NULL,
-  `isi` varchar(128) NOT NULL,
-  `tgl_putusan` date NOT NULL,
+  `no_putusan` varchar(50) DEFAULT NULL,
+  `isi` varchar(128) DEFAULT NULL,
+  `tgl_putusan` date DEFAULT NULL,
   `foto_paspor` text NOT NULL,
   `foto_wna` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tak`
+--
+
+INSERT INTO `tak` (`id_tak`, `nama`, `jk`, `alamat`, `tgl_l`, `paspor`, `masa`, `niora`, `kebangsaan`, `sponsor`, `jabatan`, `jenis_doc`, `pasal`, `pelanggaran`, `no_putusan`, `isi`, `tgl_putusan`, `foto_paspor`, `foto_wna`) VALUES
+(1, 'Sybil Ball', 'Laki-laki', 'Ipsum ipsum facere', '2018-06-28', 'Et qui sit odio labo', NULL, 'Esse deserunt volup', 'Eum voluptas blandit', NULL, 'Est ut nisi laudant', 'Riksa III', '01:27:00', 'Dolor optio iste in', NULL, NULL, NULL, 'Screenshot_2022-10-21_1944431.png', 'Screenshot_2022-10-21_1943343.png'),
+(2, 'Melodie Wagner', 'Perempuan', 'Aut labore culpa es', '2023-02-21', 'Tenetur cumque proid', NULL, 'Tenetur veniam tene', 'Assumenda atque dist', NULL, 'Ducimus tenetur neq', 'Riksa II', '14:09:00', 'Nostrum architecto e', NULL, NULL, NULL, 'Screenshot_2022-10-21_1944432.png', 'Screenshot_2022-10-21_1943344.png');
 
 -- --------------------------------------------------------
 
@@ -225,7 +232,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(5, 'admin', 'admin@admin.com', 'default.png', '$2y$10$8/HrmRcKeoN7gA0H/7AbxeoTCXnGEwo8TxCPFbzuz8bVIgqYYePQe', 1, 1, 1611730617);
+(5, 'admin', 'admin', 'default.png', '$2y$10$8/HrmRcKeoN7gA0H/7AbxeoTCXnGEwo8TxCPFbzuz8bVIgqYYePQe', 1, 1, 1611730617),
+(7, 'User 1', 'user1', 'default.png', '$2y$10$dZGhzSb81ZEK0buR92s.5u5.UMTzg.9QGM9LyOyio7iIbBzDDattO', 2, 1, 1613018751);
 
 -- --------------------------------------------------------
 
@@ -267,7 +275,8 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (1, 'Admin'),
 (2, 'User'),
 (3, 'Menu'),
-(4, 'Kegiatan');
+(4, 'Kegiatan'),
+(5, 'Anggaran');
 
 -- --------------------------------------------------------
 
@@ -320,7 +329,9 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (11, '4', 'Deportasi', 'kegiatan/deportasi', 'far fa-fw fa-clipboard', 1),
 (12, '4', 'Deteni', 'kegiatan/deteni', 'far fa-fw fa-clipboard', 1),
 (13, '4', 'Tim Pora', 'kegiatan/pora', 'far fa-fw fa-clipboard', 1),
-(14, '4', 'BAP WNA', 'kegiatan/bap', 'far fa-fw fa-clipboard', 1);
+(14, '4', 'BAP WNA', 'kegiatan/bap', 'far fa-fw fa-clipboard', 1),
+(15, '4', 'Anggaran', 'kegiatan/anggaran', 'far fa-fw fa-money-bill-alt', 1),
+(16, '5', 'Detail Anggaran', 'anggaran', 'far fa-fw fa-money-bill-alt', 1);
 
 --
 -- Indexes for dumped tables
@@ -412,37 +423,37 @@ ALTER TABLE `anggaran`
 -- AUTO_INCREMENT for table `bap`
 --
 ALTER TABLE `bap`
-  MODIFY `id_bap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_bap` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `deportasi`
 --
 ALTER TABLE `deportasi`
-  MODIFY `id_deportasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_deportasi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `deteni`
 --
 ALTER TABLE `deteni`
-  MODIFY `id_deteni` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_deteni` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pora`
 --
 ALTER TABLE `pora`
-  MODIFY `id_pora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pora` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `projustisia`
 --
 ALTER TABLE `projustisia`
-  MODIFY `id_projus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_projus` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tak`
 --
 ALTER TABLE `tak`
-  MODIFY `id_tak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_tak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -460,7 +471,7 @@ ALTER TABLE `user_access_menu`
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -472,7 +483,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

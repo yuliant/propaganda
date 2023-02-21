@@ -1,93 +1,93 @@
-   <!-- Begin Page Content -->
-   <div class="container-fluid">
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-       <!-- Page Heading -->
-       <h1 class="h3 mb-4 text-gray-800"><?php echo $title;?></h1>
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?></h1>
 
-       <div class="row">
-          <div class="col-lg-6">
-              <?php echo $this->session->flashdata('message'); ?>
-              <div class="card">
-                <div class="card-header">
-                  Input Departure
-                </div>
-                <div class="card-body">
-                   <?php echo form_open_multipart('kegiatan/tak'); ?>
-                      <div class="form-group row">
-                          <label for="tgl_l" class="col-sm-3 col-form-label">Tanggal</label>
-                          <div class="col-sm-8">
-                            <input type="date" class="form-control" id="tgl_l" name="tgl_l" value="<?php echo set_value('tgl_l')?>">
-                            <?php echo form_error('tgl_l','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="pasal" class="col-sm-3 col-form-label">Jam ETD</label>
-                          <div class="col-sm-8">
-                            <input type="time" class="form-control" id="pasal" name="pasal" >
-                            <?php echo form_error('pasal','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="nama" class="col-sm-3 col-form-label">Nama</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="name" name="nama" value="<?php echo set_value('nama')?>">
-                            <?php echo form_error('nama','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="jk" class="col-sm-3 col-form-label">Jenis Kelamin</label>
-                          <div class="col-sm-8">
-                            <select class="form-control" id="jk" name="jk">
-                            <option value="">--Pilih jenis Kelamin--</option>
-                            <option value="Laki-laki">Laki-laki</option>
-                            <option value="Perempuan">Perempuan</option>
-                          </select>
-                            <?php echo form_error('jk','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="jabatan" class="col-sm-3 col-form-label">Jabatan</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="jabatan" name="jabatan" >
-                            <?php echo form_error('jabatan','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="alamat" class="col-sm-3 col-form-label">Kode Penerbangan</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo set_value('alamat')?>">
-                            <?php echo form_error('alamat','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="paspor" class="col-sm-3 col-form-label">Rute</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="paspor" name="paspor" value="<?php echo set_value('paspor')?>">
-                            <?php echo form_error('paspor','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                      <!-- <div class="form-group row">
+  <div class="row">
+    <div class="col-lg-6">
+      <?php echo $this->session->flashdata('message'); ?>
+      <div class="card">
+        <div class="card-header">
+          Input Departure
+        </div>
+        <div class="card-body">
+          <?php echo form_open_multipart('kegiatan/tak'); ?>
+          <div class="form-group row">
+            <label for="tgl_l" class="col-sm-3 col-form-label">Tanggal</label>
+            <div class="col-sm-8">
+              <input type="date" class="form-control" id="tgl_l" name="tgl_l" value="<?php echo set_value('tgl_l') ?>">
+              <?php echo form_error('tgl_l', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="pasal" class="col-sm-3 col-form-label">Jam ETD</label>
+            <div class="col-sm-8">
+              <input type="time" class="form-control" id="pasal" name="pasal">
+              <?php echo form_error('pasal', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nama" class="col-sm-3 col-form-label">Nama</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="name" name="nama" value="<?php echo set_value('nama') ?>">
+              <?php echo form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="jk" class="col-sm-3 col-form-label">Jenis Kelamin</label>
+            <div class="col-sm-8">
+              <select class="form-control" id="jk" name="jk">
+                <option value="">--Pilih jenis Kelamin--</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+              <?php echo form_error('jk', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="jabatan" class="col-sm-3 col-form-label">Jabatan</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="jabatan" name="jabatan">
+              <?php echo form_error('jabatan', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="alamat" class="col-sm-3 col-form-label">Kode Penerbangan</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo set_value('alamat') ?>">
+              <?php echo form_error('alamat', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="paspor" class="col-sm-3 col-form-label">Rute</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="paspor" name="paspor" value="<?php echo set_value('paspor') ?>">
+              <?php echo form_error('paspor', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <!-- <div class="form-group row">
                           <label for="masa" class="col-sm-3 col-form-label">Masa Berlaku</label>
                           <div class="col-sm-8">
-                            <input type="date" class="form-control" id="masa" name="masa" value="<?php echo set_value('masa')?>">
-                            <?php echo form_error('masa','<small class="text-danger pl-3">','</small>')?>
+                            <input type="date" class="form-control" id="masa" name="masa" value="<?php echo set_value('masa') ?>">
+                            <?php echo form_error('masa', '<small class="text-danger pl-3">', '</small>') ?>
                           </div>
                       </div> -->
-                      <div class="form-group row">
-                          <label for="niora" class="col-sm-3 col-form-label">Tempat Duduk</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="niora" name="niora" value="<?php echo set_value('niora')?>">
-                            <?php echo form_error('niora','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="kebangsaan" class="col-sm-3 col-form-label">No HP</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kebangsaan" name="kebangsaan" value="<?php echo set_value('kebangsaan')?>">
-                            <?php echo form_error('kebangsaan','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                     <!--  <div class="form-group row">
+          <div class="form-group row">
+            <label for="niora" class="col-sm-3 col-form-label">Tempat Duduk</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="niora" name="niora" value="<?php echo set_value('niora') ?>">
+              <?php echo form_error('niora', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="kebangsaan" class="col-sm-3 col-form-label">No HP</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="kebangsaan" name="kebangsaan" value="<?php echo set_value('kebangsaan') ?>">
+              <?php echo form_error('kebangsaan', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <!--  <div class="form-group row">
                           <label for="sponsor" class="col-sm-3 col-form-label">Status</label>
                           <div class="col-sm-8">
                             <select class="form-control" id="sponsor" name="sponsor">
@@ -95,131 +95,131 @@
                             <option value="In Progress">In progress</option>
                             <option value="Done">Done</option>
                          </select>
-                            <?php echo form_error('sponsor','<small class="text-danger pl-3">','</small>')?>
+                            <?php echo form_error('sponsor', '<small class="text-danger pl-3">', '</small>') ?>
                           </div>
-                      </div>    -->                   
-                      <div class="form-group row">
-                          <label for="jenis_doc" class="col-sm-3 col-form-label">Petugas</label>
-                          <div class="col-sm-8">
-                            <select class="form-control" id="jenis_doc" name="jenis_doc">
-                            <option value="">--Pilih Petugas--</option>
-                            <option value="Riksa I">Riksa I</option>
-                            <option value="Riksa II">Riksa II</option>
-                            <option value="Riksa III">Riksa III</option>
-                            <option value="Riksa IV">Riksa IV</option>
-                         </select>
-                            <?php echo form_error('jenis_doc','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                      <!-- <div class="form-group row">
+                      </div>    -->
+          <div class="form-group row">
+            <label for="jenis_doc" class="col-sm-3 col-form-label">Petugas</label>
+            <div class="col-sm-8">
+              <select class="form-control" id="jenis_doc" name="jenis_doc">
+                <option value="">--Pilih Petugas--</option>
+                <option value="Riksa I">Riksa I</option>
+                <option value="Riksa II">Riksa II</option>
+                <option value="Riksa III">Riksa III</option>
+                <option value="Riksa IV">Riksa IV</option>
+              </select>
+              <?php echo form_error('jenis_doc', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <!-- <div class="form-group row">
                           <label for="pasal" class="col-sm-3 col-form-label">Pasal</label>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="pasal" name="pasal" >
-                            <?php echo form_error('pasal','<small class="text-danger pl-3">','</small>')?>
+                            <?php echo form_error('pasal', '<small class="text-danger pl-3">', '</small>') ?>
                           </div>
                       </div> -->
-                      <div class="form-group row">
-                          <label for="pelanggaran" class="col-sm-3 col-form-label">Keterangan</label>
-                          <div class="col-sm-8">
-                            <input type="textbox" class="form-control" id="pelanggaran" name="pelanggaran" >
-                            <?php echo form_error('pelanggaran','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                      <!-- <div class="form-group row">
+          <div class="form-group row">
+            <label for="pelanggaran" class="col-sm-3 col-form-label">Keterangan</label>
+            <div class="col-sm-8">
+              <input type="textbox" class="form-control" id="pelanggaran" name="pelanggaran">
+              <?php echo form_error('pelanggaran', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <!-- <div class="form-group row">
                           <label for="no_putusan" class="col-sm-3 col-form-label">No Putusan</label>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="no_putusan" name="no_putusan" >
-                            <?php echo form_error('no_putusan','<small class="text-danger pl-3">','</small>')?>
+                            <?php echo form_error('no_putusan', '<small class="text-danger pl-3">', '</small>') ?>
                           </div>
                       </div>
                       <div class="form-group row">
                           <label for="isi" class="col-sm-3 col-form-label">Isi Putusan</label>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="isi" name="isi" >
-                            <?php echo form_error('isi','<small class="text-danger pl-3">','</small>')?>
+                            <?php echo form_error('isi', '<small class="text-danger pl-3">', '</small>') ?>
                           </div>
                       </div>
                       <div class="form-group row">
                           <label for="tgl_putusan" class="col-sm-3 col-form-label">Tgl Putusan</label>
                           <div class="col-sm-8">
                             <input type="date" class="form-control" id="tgl_putusan" name="tgl_putusan" >
-                            <?php echo form_error('tgl_putusan','<small class="text-danger pl-3">','</small>')?>
+                            <?php echo form_error('tgl_putusan', '<small class="text-danger pl-3">', '</small>') ?>
                           </div>
                       </div> -->
-                                        
-                      <div class="form-group row">
-                          <label for="foto_wna" class="col-sm-3 col-form-label">Foto Tiket</label>
-                          <div class="col-sm-7">
-                              <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="foto_wna" name="foto_wna">
-                                  <label class="custom-file-label" for="foto_wna" >Choose file</label>
-                              </div>
-                              <?php echo form_error('foto_wna','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div><div class="form-group row">
-                          <label for="foto_paspor" class="col-sm-3 col-form-label">Foto Paspor</label>
-                          <div class="col-sm-7">
-                              <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="foto_paspor" name="foto_paspor">
-                                  <label class="custom-file-label" for="foto_paspor" >Choose file</label>
-                              </div>
-                              <?php echo form_error('foto_paspor','<small class="text-danger pl-3">','</small>')?>
-                          </div>
-                      </div>
-                                                            
-                        <button class="btn btn-primary btn-sm float-right" type="submit" >
-                            Save
-                        </button>
-                    </form>
-                  </div>
-                </div>
+
+          <div class="form-group row">
+            <label for="foto_wna" class="col-sm-3 col-form-label">Foto Tiket</label>
+            <div class="col-sm-7">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="foto_wna" name="foto_wna">
+                <label class="custom-file-label" for="foto_wna">Choose file</label>
               </div>
-              <div class="col-lg-6">
-                <?php echo $this->session->flashdata('messagedt'); ?>
-              <div class="card">
-                <div class="card-header">
-                   Data Protokoler Departure
-                </div>
-                <div class="card-body">
-                  <table class="table table-hover" id="tak">
-                          <thead>
-                          <tr>
-                               <th scope="col">No</th>
-                              <th scope="col">Nama</th>
-                              <th scope="col">Aksi</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-
-                              <?php $i=1; ?>
-
-                              <?php foreach ($tak as $t) : ?>
-
-                              <tr>
-                                  <th scope="row"><?php echo $i; ?></th>
-                                  <td><?php echo $t['nama']; ?></td>
-                                  <td>
-                                    <a href="<?php echo base_url(); ?>kegiatan/detail_tak/<?php echo$t['id_tak']; ?>" class="btn btn-primary btn-sm"><i class="fas fa-search-plus"></i></a>
-                                    <a href="<?php echo base_url(); ?>kegiatan/edit_tak/<?php echo$t['id_tak']; ?>" class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
-                                    <a href="<?php echo base_url(); ?>kegiatan/delete_tak/<?php echo$t['id_tak']; ?>" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>
-                                  </td>
-
-                                  <?php $i++; ?>
-
-                                  <?php endforeach; ?>
-
-                          </tbody>
-                      </table>
-                </div>
+              <?php echo form_error('foto_wna', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="foto_paspor" class="col-sm-3 col-form-label">Foto Paspor</label>
+            <div class="col-sm-7">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="foto_paspor" name="foto_paspor">
+                <label class="custom-file-label" for="foto_paspor">Choose file</label>
               </div>
+              <?php echo form_error('foto_paspor', '<small class="text-danger pl-3">', '</small>') ?>
+            </div>
           </div>
 
-                    
+          <button class="btn btn-primary btn-sm float-right" type="submit">
+            Save
+          </button>
+          </form>
+        </div>
+      </div>
+    </div>
 
-   </div>
-   <!-- /.container-fluid --> 
+    <div class="col-lg-6">
+      <?php echo $this->session->flashdata('messagedt'); ?>
+      <div class="card">
+        <div class="card-header">
+          Data Protokoler Departure (Realtime for 4 sec)
+        </div>
+        <div class="card-body">
+          <table class="table table-hover" id="tak">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
 
+            <tbody id="live_data"></tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
 
-            
+<script>
+  $('document').ready(
+    function() {
+      setInterval(() => {
+        get_data();
+      }, 5000);
+    }
+  );
+
+  function get_data() {
+    $.ajax({
+      url: "<?= base_url('kegiatan/json_tak') ?>",
+      type: "GET",
+      success: function(response) {
+        $('#live_data').html(response);
+      }
+    });
+  }
+</script>
